@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>義大利餐廳企業形象網站</title>
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <!-- https://animate.style/ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- 字形，再搭配CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&family=Zen+Old+Mincho&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/myall.css">
+    <link rel="stylesheet" href="./style.css">
+    <style>
+        @media screen and (max-width: 768px) {
+
+            .s07_text,
+            .s09_text {
+                z-index: 10;
+                background-color: rgba(0, 0, 0, 0.3);
+                color: aliceblue;
+                margin: 15px;
+                padding: 20px;
+                border-radius: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body id="app">
+    <!-- *********** section01 ********** -->
+    <section id="s01" class="bg-secondary ">
+        <div class="container text-end">
+            <a href="https://www.facebook.com/?locale=zh_TW">
+                <i class="fa-brands fa-square-facebook text-bg-primary fa-2x wow animate__lightSpeedInLeft"
+                    data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="1">
+                </i>
+            </a>
+            <a href="https://x.com/">
+                <i class="fa-brands fa-square-x-twitter text-black fa-2x wow animate__lightSpeedInLeft"
+                    data-wow-duration="1s" data-wow-delay="1s" data-wow-iteration="1"></i>
+            </a>
+            <a href="https://line.me/tw/">
+                <i class="fa-brands fa-line text-bg-success fa-2x wow animate__lightSpeedInLeft" data-wow-duration="1s"
+                    data-wow-delay="2s" data-wow-iteration="1"></i>
+            </a>
+            <a href="https://www.instagram.com/">
+                <i class="fa-brands fa-square-instagram text-danger fa-2x wow animate__lightSpeedInLeft"
+                    data-wow-duration="1s" data-wow-delay="3s" data-wow-iteration="1"></i>
+                </i>
+            </a>
+        </div>
+    </section>
+
+    <!-- *********** section02(導覽列) ********** -->
+    <section id="s02" class="bg-dark ">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg dark-light navbar-dark"> <!-- 增加改動dark-light navbar-dark  -->
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <i class="fa-solid fa-pizza-slice text-danger fa-2x wow animate__zoomIn" data-wow-duration="1s"
+                            data-wow-delay="0s" data-wow-iteration="1"></i>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="#">首頁</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link   dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    關於我們
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#s04">品牌成就</a></li>
+                                    <li><a class="dropdown-item" href="#s07">主廚專區</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#s05">訂位流程</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#s09">菜單價目</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#s10">顧客評價</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#s11">線上訂位</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#s12">常見問題</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#s13">徵才訊息</a>
+                            </li>
+                        </ul>
+                        <div>
+                            <button class="btn btn-outline-primary me-3" data-bs-toggle="modal"
+                                data-bs-target="#loginModal">登入</button>
+                            <button class="btn btn-success" data-bs-toggle="modal"
+                                data-bs-target="#registerModal">註冊</button>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <!-- loginModal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header text-bg-primary">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">會員登入</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="" class="form-label">帳號</label>
+                        <input type="text" class="form-control" :class="{'is-invalid' : !flag_username_login}"
+                            v-model="username_login">
+                        <div class="invalid-feedback">帳號不得為空白</div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">密碼</label>
+                        <input type="password" class="form-control" :class="{'is-invalid' : !flag_password_login}"
+                            v-model="password_login">
+                        <div class="invalid-feedback">密碼不得為空白</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" @click="login">確認</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- registerModal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header text-bg-success">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">會員註冊</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div class="h2">會員守則</div>
+                            <p><strong>1. 會員資格</strong><br>
+                                註冊成為本餐廳會員需填寫正確且完整的個人資料，並同意本守則之所有條款。若發現虛假資料，本餐廳有權取消會員資格。
+                            </p>
+                            <p><strong>2. 個資安全與隱私</strong><br>
+                                所有會員個人資料僅供本餐廳內部管理與服務使用，不會任意對外公開或轉售。請妥善保管您的帳號與密碼，避免第三人冒用。
+                            </p>
+                            <p><strong>3. 會員權益</strong><br>
+                                成為會員後，您將享有專屬優惠、活動優先通知、線上訂位加速流程等服務。相關權益依本餐廳公告為準，恕不另行通知。
+                            </p>
+                            <p><strong>4. 使用規範</strong><br>
+                                會員不得從事任何違法、侵權、擾亂系統秩序或影響其他用戶權益的行為，如有違反，本餐廳保有終止服務之權利。
+                            </p>
+                            <p><strong>5. 訂位與取消規定</strong><br>
+                                會員可透過線上系統預約訂位，若需取消請至少於用餐前2小時操作，避免影響下次使用權限。
+                            </p>
+                            <p><strong>6. 修改與終止權利</strong><br>
+                                本餐廳保留隨時修改會員守則與終止會員資格之權利，變更後將公告於網站，不再個別通知。
+                            </p>
+                            <div class="mb-3 form-check">
+                                <input type="checkbox" class="form-check-input" name="" id="" v-model="chk_reg"
+                                    :class="{'is-valid' : chk_reg, 'is-invalid' : !chk_reg}">
+                                <label for="" class="form-check-label"> {{ chk_reg_text }}</label>
+                                <div class="invalid-feedback">同意才能註冊</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="mb-3">
+                                <label for="" class="form-label">帳號</label>
+                                <input type="text" class="form-control" v-model="username_reg" placeholder="字數3-6"
+                                    :class="{'is-valid' : flag_username_reg, 'is-invalid' : !flag_username_reg}">
+                                <div class="valid-feedback">符合規定</div>
+                                <div class="invalid-feedback">不符合規定</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">密碼</label>
+                                <input type="password" class="form-control" v-model="password_reg" placeholder="字數4-8"
+                                    :class="{'is-valid' : flag_password_reg, 'is-invalid' : !flag_password_reg}">
+                                <div class="valid-feedback">符合規定</div>
+                                <div class="invalid-feedback">不符合規定</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">確認密碼</label>
+                                <input type="password" class="form-control" v-model="repassword_reg"
+                                    :class="{'is-valid' : flag_repassword, 'is-invalid' : !flag_repassword}">
+                                <div class="valid-feedback">符合規定</div>
+                                <div class="invalid-feedback">不符合規定</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="" class="form-label">Email</label>
+                                <input type="email" class="form-control" v-model="email_reg" placeholder="字數6-15"
+                                    :class="{'is-valid' : flag_email, 'is-invalid' : !flag_email}">
+                                <div class="valid-feedback">符合規定</div>
+                                <div class="invalid-feedback">不符合規定</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" @click="register">確認</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- *********** section03 (橫幅-主視覺)********** -->
+    <section id="s03">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"
+                    aria-label="Slide 4"></button>
+                <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"
+                    aria-label="Slide 5"></button>
+            </div>
+            <div class="carousel-inner">
+                <div class="carousel-item bg-cover active"
+                    style="background-image: url(Italianfood_images/pexels-karolina-grabowska-5718025.jpg);height: 600px;">
+                    <!--active 只能有一個 -->
+                    <div class="carousel-caption d-none d-md-block p-3 rounded-3 shadow-lg"
+                        style="background-color: rgba(0, 0, 0, 0.3);">
+                        <h3 class="fw-900 wow animate__fadeInUp" data-wow-duration="2s" data-wow-delay="0s"
+                            data-wow-iteration="1">精選義式料理</h3>
+                        <p class="fs-5 wow animate__fadeInUp" data-wow-duration="2s" data-wow-delay="0s"
+                            data-wow-iteration="1">
+                            新鮮食材精心搭配，每道菜都是一場味蕾盛宴。</p>
+                    </div>
+                </div>
+                <div class="carousel-item bg-cover img-limit"
+                    style="background-image: url(Italianfood_images/pexels-marceloverfe-29437037.jpg);height: 600px;">
+                    <div class="carousel-caption d-none d-md-block p-3 rounded-3 shadow-lg"
+                        style="background-color: rgba(0, 0, 0, 0.3);">
+                        <h3 class="fw-900 wow animate__fadeInUp" data-wow-duration="2s" data-wow-delay="0s"
+                            data-wow-iteration="1">品味傳統義式甜點</h3>
+                        <p class="fs-5 wow animate__fadeInUp" data-wow-duration="2s" data-wow-delay="0s"
+                            data-wow-iteration="1">濃濃的提拉米蘇香氣，為用餐畫上完美句點。</p>
+                    </div>
+                </div>
+                <div class="carousel-item bg-cover img-limit"
+                    style="background-image: url(Italianfood_images/pexels-fotios-photos-1279330.jpg);height: 600px;">
+                    <div class="carousel-caption d-none d-md-block p-3 rounded-3 shadow-lg"
+                        style="background-color: rgba(0, 0, 0, 0.3);">
+                        <h3 class="fw-900 wow animate__fadeInUp" data-wow-duration="2s" data-wow-delay="0s"
+                            data-wow-iteration="1">每一口，都是義大利的熱情與傳統。</h3>
+                        <p class="fs-5 wow animate__fadeInUp" data-wow-duration="2s" data-wow-delay="0s"
+                            data-wow-iteration="1">嚴選來自義大利的正宗食材，讓每道料理訴說地中海的故事。</p>
+                    </div>
+                </div>
+                <div class="carousel-item bg-cover img-limit"
+                    style="background-image: url(Italianfood_images/pexels-narda-yescas-724842-1566837.jpg); height: 600px;">
+                    <div class="carousel-caption d-none d-md-block p-3 rounded-3 shadow-lg"
+                        style="background-color: rgba(0, 0, 0, 0.3);">
+                        <h3 class="fw-900 wow animate__fadeInUp" data-wow-duration="2s" data-wow-delay="0s"
+                            data-wow-iteration="1">義式經典披薩</h3>
+                        <p class="fs-5 wow animate__fadeInUp" data-wow-duration="2s" data-wow-delay="0s"
+                            data-wow-iteration="1">手工製作，薄脆餅皮搭配濃郁起司與豐富配料。</p>
+                    </div>
+                </div>
+                <div class="carousel-item bg-cover img-limit"
+                    style="background-image: url(Italianfood_images/pexels-olly-3811606.jpg);height: 600px;">
+                    <div class="carousel-caption d-none d-md-block p-3 rounded-3 shadow-lg"
+                        style="background-color: rgba(0, 0, 0, 0.3);">
+                        <h3 class="fw-900 wow animate__fadeInUp" data-wow-duration="2s" data-wow-delay="0s"
+                            data-wow-iteration="1">從羅馬到台灣，品味地中海的美味。</h3>
+                        <p class="fs-5 wow animate__fadeInUp" data-wow-duration="2s" data-wow-delay="0s"
+                            data-wow-iteration="1">無需遠行，讓我們帶您踏上一場美食之旅。</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </section>
+    <!-- *********** section04(品牌成就) ********** -->
+    <section id="s04">
+        <div class="row align-items-center">
+            <div class="col-md-5 bg-cover"
+                style="background-image: url(./Italianfood_images/pexels-adrien-olichon-1257089-2537605.jpg); height: 600px;">
+            </div>
+            <div class="col-md-7 p-5 wow animate__fadeInDown" data-wow-duration="2s" data-wow-delay="0s"
+                data-wow-iteration="1">
+                <h1 class="fw-900">2024年 <span class="text-success fw-900">全球首屈一指</span> </h1>
+                <h1 class="fw-900">的義大利餐飲品牌</h1>
+                <p class="mb-1">我們以傳承經典的義大利風味，為每位顧客帶來最純正的美食體驗。</p>
+                <p class="mb-1">每道佳餚均由最優質的食材精心製作，結合地道手法呈現。</p>
+                <p class="mb-1">在這裡，您將感受到來自義大利的熱情與美味的完美融合。</p>
+                <div class="row mt-5">
+                    <div class="col-md-3">
+                        <h4>年均顧客</h4>
+                        <h2 class="fw-900 counter01">10000 <span class="h4 text-muted">/位</span> </h2>
+                    </div>
+                    <div class="col-md-3">
+                        <h4>獲獎數目</h4>
+                        <h2 class="fw-900 counter02">25 <span class="h4 text-muted">/項</span> </h2>
+                    </div>
+                    <div class="col-md-3 counter03">
+                        <h4>美食品質認証</h4>
+                        <h2 class="fw-900">15 <span class="h4 text-muted">/個</span> </h2>
+                    </div>
+                    <div class="col-md-3">
+                        <h4>全球據點</h4>
+                        <h2 class="fw-900 counter04">50 <span class="h4 text-muted">/處</span> </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- *********** section05 (預定流程) ********** -->
+    <!-- background-attachment: fixed; 固定畫面-->
+    <section id="s05" class="bg-cover"
+        style="background-image: url(./Italianfood_images/samuel-regan-asante-5ZVZ1JQLYWg-unsplash.jpg); background-attachment: fixed;">
+        <div class="container-fluid">
+            <div class="row align-items-center ">
+                <div class="col-md-3 me-auto text-center m-md-3 wow animate__fadeInDown" data-wow-duration="3s"
+                    data-wow-delay="0s" data-wow-iteration="1" style="background-color: rgba(0, 0, 0, 0.3);">
+                    <div class="h2 fw-900 text-white text-md-start">餐廳預定流程</div>
+                    <p class="text-white fs-5 text-md-start">
+                        四個簡單步驟，輕鬆完成餐廳預定。不論是選擇日期、填寫資料或確認預定，都能快速完成。輕鬆安排您的用餐計畫，享受每一刻的美好時光。
+                    </p>
+                </div>
+                <div class="col-md-8">
+                    <div class="timeline-section">
+                        <div class="row align-items-center mt-3 timeline-section-pointer">
+                            <div class="col-md-6">
+                                <div class="text01 text-center wow animate__fadeInLeft" data-wow-duration="3s"
+                                    data-wow-delay="0s" data-wow-iteration="1"
+                                    style="background-color: rgba(0, 0, 0, 0.3);">
+                                    <div class="h2 fw-900 text-white text-md-start">預定流程01</div>
+                                    <p class="text-white fs-5 text-start">
+                                        選擇您喜歡的日期與時間，並確認餐廳位置。無論您與朋友還是家人一起用餐，預定一個合適的時間讓您輕鬆享受美食。不需等待，隨時預定，無論是週末還是平日，輕鬆享受您的美好時光。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="img01 bg-cover rollerbox"
+                                    style="background-image: url(Italianfood_images/pexels-fotios-photos-1279330.jpg);height: 350px;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row align-items-center mt-3 flex-row-reverse timeline-section-pointer">
+                            <div class="col-md-6">
+                                <div class="text01 text-center wow animate__fadeInLeft" data-wow-duration="3s"
+                                    data-wow-delay="0s" data-wow-iteration="1"
+                                    style="background-color: rgba(0, 0, 0, 0.3);">
+                                    <div class=" h2 fw-900 text-white text-md-start">預定流程02</div>
+                                    <p class="text-white fs-5 text-start">
+                                        填寫基本資料如姓名、聯絡電話及用餐人數等，我們將為您保留最佳座位，確保您享受無憂的用餐體驗。只需提供必要的資料，簡單快速完成預定，讓您專心享受每一刻。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="img01 bg-cover rollerbox"
+                                    style="background-image: url(Italianfood_images/pexels-enginakyurt-1487511.jpg);height: 350px; ">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row align-items-center mt-3 timeline-section-pointer">
+                            <div class="col-md-6">
+                                <div class="text01 text-center wow animate__fadeInLeft" data-wow-duration="3s"
+                                    data-wow-delay="0s" data-wow-iteration="1"
+                                    style="background-color: rgba(0, 0, 0, 0.3);">
+                                    <div class="h2 fw-900 text-white text-md-start">預定流程03</div>
+                                    <p class="text-white fs-5 text-start">
+                                        確認您的預定資訊，並提交預定申請。您將會收到一封確認通知，保證您的座位已經被保留。隨時查看並修改您的預定資訊，保證每一個細節都符合您的需求，無憂享受每一餐。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="img01 bg-cover rollerbox"
+                                    style="background-image: url(Italianfood_images/pexels-harry-dona-2412950.jpg);height: 350px; ">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row align-items-center my-3 flex-row-reverse timeline-section-pointer">
+                            <div class="col-md-6">
+                                <div class="text01 text-center wow animate__fadeInLeft" data-wow-duration="3s"
+                                    data-wow-delay="0s" data-wow-iteration="1"
+                                    style="background-color: rgba(0, 0, 0, 0.3);">
+                                    <div class="h2 fw-900 text-white text-md-start">預定流程04</div>
+                                    <p class="text-white fs-5 text-start">
+                                        當您抵達餐廳後，您的專屬座位已經準備好，您只需輕鬆入座，享受美味的義式料理。無需等待，立刻開始您的美食之旅，品嚐每一道經典的義大利菜餚，感受熱情的服務與美好的時光。
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="img01 bg-cover rollerbox"
+                                    style="background-image: url(Italianfood_images/pexels-olly-761854.jpg);height: 350px; ">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- *********** section06 (我們的服務) ********** -->
+    <section id="s06" class="bg-color02">
+        <div class="container-fluid">
+            <div class="row text-center py-5">
+                <div class="col-md-4 ">
+                    <i class="fa-solid fa-utensils text-primary fa-8x my-3 wow animate__zoomIn" data-wow-duration="2s"
+                        data-wow-delay="0s" data-wow-iteration="1"></i>
+                    <div class="h3 fw-900">精緻義式料理</div>
+                    <p class="fw-700 d-none d-md-block">我們精心挑選來自義大利的正宗食材，結合傳統烹飪技術，呈現每一道經典佳餚。從前菜到甜點，帶您體驗地中海的原汁原味。</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fa-solid fa-wine-glass text-danger fa-8x my-3 wow animate__zoomIn" data-wow-duration="2s"
+                        data-wow-delay="0s" data-wow-iteration="1"></i>
+                    <div class="h3 fw-900 ">精選美酒佳釀</div>
+                    <p class="fw-700 d-none d-md-block">餐廳提供多樣化的義大利葡萄酒，從經典紅酒到白酒搭配您的餐點，讓每一餐都成為味蕾的饗宴。</p>
+                </div>
+                <div class="col-md-4">
+                    <i class="fa-solid fa-award text-warning fa-8x my-3 wow animate__zoomIn" data-wow-duration="2s"
+                        data-wow-delay="0s" data-wow-iteration="1"></i>
+                    <div class="h3 fw-900">卓越服務</div>
+                    <p class="fw-700 d-none d-md-block"> 獲得多項餐飲服務獎項的我們，秉持熱情好客的精神，為每位顧客提供難忘的用餐體驗，從進門到離開都倍感尊榮。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- *********** section07 (主廚故事-切版重要)********** -->
+    <section id="s07" class="position-relative">
+        <!-- g-0 移除.row 的所有水平與垂直間距。-->
+        <div class="row g-0">
+            <div class="col-md-5 position-absolute top-0 bottom-0 bg-cover wow animate__lightSpeedInLeft"
+                data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1"
+                style="background-image: url(Italianfood_images/pexels-shvetsa-5953552.jpg);">
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-md-7 p-3 s07_text wow animate__lightSpeedInRight" data-wow-duration="2s"
+                    data-wow-delay="0s" data-wow-iteration="1" style="visibility: hidden;">
+                    <h2 class="fw-900">主廚的餐桌故事</h2>
+                    <p>我們的主廚來自義大利南部，擁有超過20年的料理經驗。他以家族世代傳承的食譜為基礎，結合現代創意與技術，將每一道菜品變成藝術品。</p>
+                    <button class="btn btn-outline-success">了解更多</button>
+                    <!-- 巢狀排版 -->
+                    <div class="row mt-5">
+                        <div class="col-md-6">
+                            <div class="h3 fw-900">精湛技藝與熱忱</div>
+                            <p>主廚曾於米其林星級餐廳學藝，專精於融合傳統與現代風味。他對每一個細節的堅持，成就了餐廳的極致美味。</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="h3 fw-900">獨特的美食哲學</div>
+                                <p>在主廚眼中，料理不僅是食物，更是分享與愛的表現。他相信每一餐都是一次令人難忘的旅程。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!-- *********** section08 (餐廳特色) ********** -->
+    <section id="s08">
+        <div class="container">
+            <div class="display-3 text-primary fw-900 text-center my-4">餐廳獨特體驗</div>
+            <div class="row">
+                <div class="col-md-6 mt-4">
+                    <div class="d-flex align-items-center">
+                        <i class="fa-solid fa-map-marker-alt fa-3x text-success me-3 wow animate__heartBeat"
+                            data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="infinite"></i>
+                        <div>
+                            <div class="h1 fw-900 text-center text-success">獨特餐廳氛圍</div>
+                            <p>我們的餐廳提供寧靜而優雅的就餐環境，讓您在享受美食的同時，感受放鬆和舒適。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-4">
+                    <div class="d-flex align-items-center">
+                        <i class="fa-solid fa-calendar-day fa-3x text-success me-3 wow animate__heartBeat"
+                            data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="infinite"></i>
+                        <div>
+                            <div class="h1 fw-900 text-center text-success">主題晚宴</div>
+                            <p>定期舉辦義式主題晚宴，搭配音樂與特色菜品，打造難忘的用餐體驗。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-4">
+                    <div class="d-flex align-items-center">
+                        <i class="fa-solid fa-guitar fa-3x text-success me-3 wow animate__heartBeat"
+                            data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="infinite"></i>
+                        <div>
+                            <div class=" h1 fw-900 text-center text-success">現場音樂
+                            </div>
+                            <p>我們邀請音樂家為您演奏現場音樂，增添每餐的情調，為您帶來愉快的用餐時光。</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mt-4">
+                    <div class="d-flex align-items-center">
+                        <i class="fa-solid fa-glass-cheers fa-3x text-success me-3 wow animate__heartBeat"
+                            data-wow-duration="1s" data-wow-delay="0s" data-wow-iteration="infinite"></i>
+                        <div>
+                            <div class="h1 fw-900 text-center text-success">專屬慶祝活動</div>
+                            <p>為您的生日、周年紀念等特別日子提供專屬慶祝服務，讓每一刻都值得紀念。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- *********** section09 (菜單價目表) ********** -->
+    <!-- g-0消除白邊 -->
+    <section id="s09" class="position-relative">
+        <div class="container">
+            <div class="row g-0">
+                <div class="col-md-7 py-5 s09_text wow animate__rollIn" data-wow-duration="2s" data-wow-delay="0s"
+                    data-wow-iteration="1">
+                    <dl class="row fs-5">
+                        <div class="h2 fw-900">菜單價目表</div>
+                        <dt class="col-sm-3">義式料理套餐 A</dt>
+                        <dd class="col-sm-9">NT$ 350 <br> 包含義大利麵、沙拉、甜點和飲料</dd>
+                        <dt class="col-sm-3">義式料理套餐 B</dt>
+                        <dd class="col-sm-9">NT$ 450 <br> 包含比薩、湯品、甜點和飲料</dd>
+                        <dt class="col-sm-3">義大利麵 (單點)</dt>
+                        <dd class="col-sm-9">NT$ 220 <br> 可選擇番茄肉醬、白醬或青醬口味</dd>
+                        <dt class="col-sm-3 text-truncate">比薩 (單點)</dt>
+                        <dd class="col-sm-9">NT$ 280 <br> 包括瑪格麗特、海鮮或香腸口味</dd>
+                        <dt class="col-sm-3">葡萄酒</dt>
+                        <dd class="col-sm-9">NT$ 350 <br> 提供紅白酒，選擇來自義大利的各種酒款
+                        </dd>
+                        <dt class="col-sm-3">義式甜點 - 提拉米蘇</dt>
+                        <dd class="col-sm-9">NT$ 120 <br> 經典義式甜點，搭配濃郁的咖啡和馬斯卡彭芝士。</dd>
+                        <dt class="col-sm-3">義式冰淇淋</dt>
+                        <dd class="col-sm-9">NT$ 100 <br> 提供各種口味，滿足您的甜點需求。</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-end g-0">
+            <div class="col-md-5 position-absolute top-0 bottom-0 bg-cover wow animate__bounceInRight"
+                data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1"
+                style="background-image: url(Italianfood_images/pexels-kei-photo-1420806-2741448.jpg);"></div>
+        </div>
+    </section>
+
+    <!-- *********** section10 (顧客評價) ********** -->
+    <section id="s10" class="py-5">
+        <div class="container">
+            <div class="display-4 fw-900 text-center my-4">顧客評價</div>
+            <div class="row">
+                <div class="col-md-4 mb-4 wow animate__flipInX" data-wow-duration="2s" data-wow-delay="0s"
+                    data-wow-iteration="1">
+                    <div class="card" style="border: 2px solid #FF5733;background-color: #fff8e1;">
+                        <div class="card-body text-center">
+                            <i class="fa-solid fa-person fa-3x"></i>
+                            <h4 class="card-title">李先生</h4>
+                            <p class="card-text">義式料理口味道地，每道菜都讓我驚豔。服務也很棒，有賓至如歸，會再來光顧！</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4 wow animate__flipInX" data-wow-duration="2s" data-wow-delay="2s"
+                    data-wow-iteration="1">
+                    <div class="card" style="border: 2px solid #FF5733;background-color: #fff8e1;">
+                        <div class=" card-body text-center">
+                            <i class="fa-solid fa-person-dress fa-3x"></i>
+                            <h4 class="card-title">王小姐</h4>
+                            <p class="card-text">餐廳的氛圍非常適合約會，食物也美味。尤其是他們的甜點，真是必點！</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4 wow animate__flipInX" data-wow-duration="2s" data-wow-delay="4s"
+                    data-wow-iteration="1">
+                    <div class="card" style="border: 2px solid #FF5733;background-color: #fff8e1;">
+                        <div class="card-body text-center">
+                            <i class="fa-solid fa-person fa-3x"></i>
+                            <h4 class="card-title">張先生</h4>
+                            <p class="card-text">這裡的服務無可挑剔，每次來都讓我感覺賓至如歸。義大利麵口味獨特，一定要試試！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- *********** section11 (線上訂位) ********** -->
+    <section id="s11">
+        <div class="container">
+            <div class="row my-4">
+                <div class="col-md-6">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14563.779930688663!2d120.6256018!3d24.1385702!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693ded6aafba9f%3A0xa2424c6fdd8043ff!2zQmFjaXRhbGkg5bCP576p5aSn5Yip!5e0!3m2!1szh-TW!2stw!4v1732506182541!5m2!1szh-TW!2stw"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade" class="wow animate__zoomInDown"
+                        data-wow-duration="2s" data-wow-delay="0s" data-wow-iteration="1"></iframe>
+                </div>
+                <div class="col-md-6">
+                    <div class="h2 fw-900 text-center">線上訂位</div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">姓名</label>
+                        <input type="text" name="" id="" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">電話</label>
+                        <input type="phone" name="" id="" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">Email</label>
+                        <input type="email" name="" id="" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">人數</label>
+                        <input type="number" name="" id="" class="form-control">
+                    </div>
+                    <div class="text-end mt-5">
+                        <button class="btn btn-outline-danger">取消</button>
+                        <button class="btn btn-success">確認</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- *********** section12 (常見問題) ********** -->
+    <section id="s12">
+        <div row>
+            <div class="container mb-3">
+                <h2 class="text-center mb-3 fw-900">常見問題 (FAQ)</h2>
+                <div class="accordion wow animate__rotateInDownLeft" data-wow-duration="1s" data-wow-delay="0s"
+                    data-wow-iteration="1" id="accordionExample">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button fw-900" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                問題1:餐廳有提供外帶服務嗎？
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong style="color: var(--mycolor17);">
+                                    是的，我們提供外帶服務。您可以在網站上訂購外帶，也可以直接到店裡選擇外帶。
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed fw-900" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                問題2:餐廳接受信用卡支付嗎？
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong style="color: var(--mycolor17);">
+                                    是的，我們接受各大信用卡(如VISA、MasterCard、American Express等)，此外也提供現金支付和行動支付選項。
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed fw-900" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                問題3:餐廳有提供停車位嗎？
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong style="color: var(--mycolor17);">
+                                    我們的餐廳提供免費停車場，方便您開車前來就餐。若停車場已滿，您可以聯繫餐廳服務人員尋找其他停車方案。
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed fw-900" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                問題4:餐廳是否有提供兒童座椅？
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong style="color: var(--mycolor17);">
+                                    是的，我們提供兒童座椅，讓小朋友也能舒適就餐。若您需要，請告知我們，我們會準備好座椅。
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFive">
+                            <button class="accordion-button collapsed fw-900" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                問題5:是否提供私人訂製菜單？
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <strong style="color: var(--mycolor17);">
+                                    是的，我們提供私人訂製菜單，特別是對於大型活動或特殊場合。我們會根據客戶需求設計符合您要求的菜單，並提供相關建議。
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ************section13 (徵才訊息)*********** -->
+    <section id="s13">
+        <div class="row">
+            <div class="col-md-6 bg-cover"
+                style="background-image: url(./Italianfood_images/pexels-edmond-dantes-4344860.jpg);">
+                <div class="row p-3 justify-content-center align-content-center" id=" accordionExample">
+                    <div class="col-9 p-5 text-white rounded-5 wow animate__backInLeft" data-wow-duration="1s"
+                        data-wow-delay="0s" data-wow-iteration="1"
+                        style="background-color: rgba(0, 0, 0, 0.5);width: 450px; height: 350px;">
+                        <small class="text-bg-danger badge">加入我們</small>
+                        <h3 class="fw-900 my-3">徵求副主廚</h3>
+                        <ul>
+                            <li>具備至少3年以上義式料理廚房經驗。</li>
+                            <li>熟悉義大利料理的製作流程與食材搭配。</li>
+                            <li>擁有廚房管理經驗，能協助主廚進行菜單設計與管理。</li>
+                            <li>具備團隊合作精神與領導能力，能夠有效分配廚房工作。</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-warning">投遞履歷</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 bg-cover"
+                style="background-image: url(./Italianfood_images/pexels-tima-miroshnichenko-5439445.jpg);">
+                <div class="row p-3 justify-content-center align-content-center">
+                    <div class="col-9 p-5 text-white rounded-5 wow animate__backInRight" data-wow-duration="1s"
+                        data-wow-delay="0s" data-wow-iteration="1" id="accordionExample"
+                        style="background-color: rgba(0, 0, 0, 0.5); width: 450px;height: 350px;">
+                        <small class="text-bg-success badge">加入我們</small>
+                        <h3 class="fw-900 my-3">徵求服務生</h3>
+                        <ul>
+                            <li>具備良好的客戶服務態度</li>
+                            <li>優秀的溝通能力</li>
+                            <li>有餐廳工作經驗者優先</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-info">投遞履歷</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ************section14 (版權宣告)*********** -->
+    <section id="s14">
+        <div class="container">
+            <ul class="nav justify-content-center mt-3 wow animate__backInRight" data-wow-duration="2s"
+                data-wow-delay="0s" data-wow-iteration="1">
+                <li class="nav-item">
+                    <a class="nav-link disabled fw-900">@Copyright by 跨平台網頁設計 </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">隱私政策</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">使用條款</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">聯繫我們</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/jquery-3.7.1.js"></script>
+    <!-- 計數器 搜尋counter-up github -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js"></script>
+    <!--來源網址: https://wowjs.uk/ -->
+    <script src="./js/wow.min.js"></script>
+    <!--來源網址: axios : https://github.com/axios/axios-->
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script>
+        //section04(品牌成就)
+        $(function () {
+            // WOW動畫
+            new WOW().init();
+            //counterup
+            const counterUp = window.counterUp.default
+            const callback = entries => {
+                entries.forEach(entry => {
+                    const el = entry.target
+                    if (entry.isIntersecting && !el.classList.contains('is-visible')) {
+                        counterUp(el, {
+                            duration: 1500,
+                            delay: 16,
+                        })
+                        el.classList.add('is-visible')
+                    }
+                })
+            }
+            const IO = new IntersectionObserver(callback, { threshold: 1 })
+
+            const el01 = document.querySelector('.counter01')
+            IO.observe(el01)
+
+            const el02 = document.querySelector('.counter02')
+            IO.observe(el02)
+
+            const el03 = document.querySelector('.counter03')
+            IO.observe(el03)
+
+            const el04 = document.querySelector('.counter04')
+            IO.observe(el04)
+        });
+
+        const App = {
+            data() {
+                return {
+                    username_reg: '',
+                    password_reg: '',
+                    repassword_reg: '',
+                    email_reg: '',
+                    chk_reg: false,
+                    chk_reg_text: '不同意',
+                    username_login: '',
+                    password_login: '',
+
+                    flag_username_reg: false,
+                    flag_password_reg: false,
+                    flag_repassword: false,
+                    flag_email: false,
+                    flag_username_login: false,
+                    flag_password_login: false,
+                }
+            },
+            watch: {
+                username_reg: function (newValue) {
+                    const vm = this;
+                    console.log(newValue);
+                    if (newValue.length > 2 && newValue.length < 7) {
+                        //符合規則
+                        vm.flag_username_reg = true;
+                    } else {
+                        //不符合規則
+                        vm.flag_username_reg = false;
+                    }
+                },
+                password_reg: function (newValue) {
+                    const vm = this;
+                    console.log(newValue);
+                    if (newValue.length > 3 && newValue.length < 9) {
+                        //符合規則
+                        vm.flag_password_reg = true;
+                        if (vm.password_reg == vm.repassword_reg) {
+                            vm.flag_repassword = true;
+                        } else {
+                            vm.flag_repassword = false;
+                        }
+                    } else {
+                        //不符合規則
+                        vm.flag_password_reg = false;
+                    }
+                },
+                repassword_reg: function (newValue) {
+                    const vm = this;
+                    if (vm.flag_password_reg) {
+                        if (vm.password_reg == vm.repassword_reg) {
+                            vm.flag_repassword = true;
+                        } else {
+                            vm.flag_repassword = false;
+                        }
+                    } else {
+                        vm.flag_repassword = false;
+                    }
+                },
+                email_reg: function (newValue) {
+                    const vm = this;
+                    console.log(newValue);
+                    if (newValue.length > 5 && newValue.length < 16) {
+                        //符合規則
+                        vm.flag_email = true;
+                    } else {
+                        //不符合規則
+                        vm.flag_email = false;
+                    }
+                },
+                chk_reg: function (newValue) {
+                    const vm = this;
+                    if (vm.chk_reg) {
+                        vm.chk_reg_text = '同意';
+                    } else {
+                        vm.chk_reg_text = '不同意';
+                    }
+                },
+                username_login: function (newValue) {
+                    const vm = this;
+
+                    if (newValue != "") {
+
+                        vm.flag_username_login = true;
+                    } else {
+
+                        vm.flag_username_login = false;
+                    }
+                },
+                password_login: function (newValue) {
+                    const vm = this;
+
+                    if (newValue != "") {
+
+                        vm.flag_password_login = true;
+                    } else {
+
+                        vm.flag_password_login = false;
+                    }
+                },
+            },
+            methods: {
+                register() {
+                    const vm = this;
+                    if (vm.flag_username_reg && vm.flag_password_reg && vm.flag_repassword && vm.flag_email && vm.chk_reg) {
+                        //傳遞註冊資料至後端API
+                        // Send a POST request
+                        //{"username":"admin01", "password":"", "email":"test@test.com"} 老師的
+                        var dataJSON = {};
+                        dataJSON["username"] = vm.username_reg;
+                        dataJSON["password"] = vm.password_reg;
+                        dataJSON["email"] = vm.email_reg;
+                        console.log(JSON.stringify(dataJSON));
+                        axios({
+                            method: 'post',
+                            url: './member_reg_api.php',
+                            data: JSON.stringify(dataJSON)
+                        }).then(function (response) {
+                            console.log(response);
+                            if (response.data.state) {
+                                alert(response.data.message);
+                                location.href = "./index.html";
+                            } else {
+                                alert(response.data.message);
+                            }
+                        })
+                            .catch(function (error) {
+                                console.log(error);
+                            });
+                    } else {
+                        alert("欄位錯誤請修正!");
+                    }
+                },
+                login() {
+                    const vm = this;
+                    if (vm.flag_username_login && vm.flag_password_login) {
+                        //傳遞登入資料至後端API
+                        // Send a POST request
+                        //{"username":"admin01", "password":""}
+                        var dataJSON = {};
+                        dataJSON["username"] = vm.username_login;
+                        dataJSON["password"] = vm.password_login;
+                        console.log(JSON.stringify(dataJSON));
+                        axios({
+                            method: 'post',
+                            url: './member_login_api.php',
+                            data: JSON.stringify(dataJSON)
+                        }).then(function (response) {
+                            console.log(response);
+                            if (response.data.state) {
+                                alert(response.data.message);
+                                location.href = "./index.html";
+                            } else {
+                                alert(response.data.message);
+                            }
+                        })
+                            .catch(function (error) {
+                                console.log(error);
+                            });
+                    } else {
+                        alert("帳密不可以空白!");
+                    }
+                }
+            }
+        }
+        Vue.createApp(App).mount('#app');
+    </script>
+</body>
+
+</html>

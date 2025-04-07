@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+JP&family=Klee+One&family=Noto+Sans+HK:wght@100..900&family=Noto+Sans+TC:wght@100..900&family=Yusei+Magic&display=swap');
+
+:root{
+    --mycol01:#499360;
+    --mycolor02:#ffd954;
+    --mycolor03:#bd8162;
+    --mycolor04:#d92139;
+    --mycolor05:#fe7773;
+    --mycolor06:#a13e97;
+    --mycolor07:#0359ae;
+    --mycolor08:#b2a59f;
+    --mycolor09:#ae4981;
+    --mycolor10:#14b09b;
+    --mycolor11:#ffffff;
+    --mycolor12:#000000;  /* 01-12為自己配色 */
+    --mycolor13:#4A6FA5;  /* 柔和的海藍色 */
+    --mycolor14:#FFF4E6;  /* 柔和的淡杏色 */
+    --mycolor15:#F9E2AE;  /* 柔和的金黃色 */
+    --mycolor16:#F4B393;  /* 柔和的銅橙色 */
+    --mycolor17:#F08080;  /* 柔和的珊瑚紅色 */
+    --mycolor18:#59708A;  /* 柔和的藍灰色 */
+    --mycolor19:#748CAB;  /* 柔和的鉛灰藍色 */
+    --mycolor20:#A8D5E2;  /* 柔和的天藍色 */
+    --mycolor21:#BBA0D4;  /* 柔和的淡紫色 */
+    --mycolor22:#A7D8C8;  /* 柔和的綠松石色 */
+    --mycolor23:#E58C8A;  /* 柔和的玫瑰紅色 */
+    --mycolor24:#FFD89B;  /* 柔和的橙杏色 */
+    
+    /* 背景色 */
+    --background-light:#F0F4F8;  /* 柔和的淺灰白色，適合作為淺色背景 */
+    --background-dark:#2D3E50;   /* 柔和的深灰藍色，適合作為深色背景 */
+    
+    /* 文字色 */
+    --text-dark:#1A1A1A;  /* 深灰黑色，適合淺色背景上的主要文字 */
+    --text-light:#FFFFFF; /* 純白色，適合深色背景上的主要文字 */
+    --text-muted:#7A869A; /* 柔和的灰藍色，用於次要文字或提示文字 */
+}
+/* 自行定義背景色 */
+.bg-color01{background-color: var(--mycolor13);}
+.bg-color02{background-color: var(--mycolor14);}
+.bg-color03{background-color: var(--mycolor15);}
+.bg-color04{background-color: var(--mycolor16);}
+.bg-color05{background-color: var(--mycolor17);}
+.bg-color06{background-color: var(--mycolor18);}
+.bg-color07{background-color: var(--mycolor19);}
+.bg-color08{background-color: var(--mycolor20);}
+.bg-color09{background-color: var(--mycolor21);}
+.bg-color10{background-color:var(--mycolor22);}
+.bg-color11{background-color: var(--mycolor23);}
+.bg-color12{background-color: var(--mycolor24);}
+
+
+/* 自行定義漸層配色 */
+/* 清新蓝绿渐变 */
+.l-g1 { background-image: linear-gradient( rgba(100, 210, 255, 0.2), rgba(0, 150, 136, 0.2));}
+/* 温暖橙红渐变: */
+.l-g2{ background-image: linear-gradient(rgba(255, 94, 77, 0.2), rgba(255, 215, 0, 0.2));}
+/* 梦幻紫蓝渐变: */
+.l-g3{ background-image: linear-gradient(rgba(102, 51, 153, 0.2), rgba(153, 102, 255, 0.2));}
+/* 柔和粉紫渐变: */
+.l-g4{background-image: linear-gradient(rgba(255, 182, 193, 0.2), rgba(221, 160, 221, 0.2));}
+/* 自定义粉紫渐变 */
+.l-g5 {background-image: linear-gradient(rgba(255, 150, 200, 0.5), rgba(200, 150, 255, 0.5));}
+/* 自定义紫蓝渐变 */
+.l-g6 {background-image: linear-gradient(rgba(80, 0, 160, 0.5), rgba(150, 0, 255, 0.5));}
+/* 自定义橙红渐变 */
+.l-g7 {background-image: linear-gradient(rgba(255, 100, 50, 0.5), rgba(255, 180, 50, 0.5));}
+/* 自定义蓝绿色渐变 */
+.l-g1 {background-image: linear-gradient(rgba(70, 200, 255, 0.5), rgba(0, 120, 90, 0.5));}
+
+
+/* 文字粗細 */
+.fw-100{
+    font-weight:100;
+}
+.fw-200{
+    font-weight:200;
+}
+.fw-300{
+    font-weight:300;
+}
+.fw-400{
+    font-weight:400;
+}
+.fw-500{
+    font-weight:500;
+}
+.fw-600{
+    font-weight:600;
+}
+.fw-700{
+    font-weight:700;
+}
+.fw-800{
+    font-weight:800;
+}
+.fw-900{
+    font-weight:900;
+}
+
+.bg-cover {
+    background-position: center center;
+    background-size: cover;
+}
