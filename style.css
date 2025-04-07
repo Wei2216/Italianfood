@@ -135,14 +135,6 @@ table {
 }
 
 
-/*  Google Fonst嵌入 */
-body {
-    font-family: "Zen Maru Gothic", serif;
-    font-weight: 400;
-    font-style: normal;
-    overflow-x: hidden;
-}
-
 /* 時間軸畫法 */
 .timeline-section {
     position: relative;
