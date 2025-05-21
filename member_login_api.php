@@ -1,54 +1,50 @@
 <?php
-//input: {"username":"xx", "password":"xx"}
-// {"state": true, "message" : "登入成功"}
-// {"state": false "message" : "登入失敗"}
-// {"state": false "message" : "欄位錯誤"}
-// {"state": false "message" : "欄位不得空白"}
+// input: {"username":"xx", "password":"xx"}
+// 回傳JSON: {"state": true/false, "message": "訊息"}
 
-$data = file_get_contents("php://input", "r");
-$mydata = array();
+$data = file_get_contents("php://input");
 $mydata = json_decode($data, true);
 
 if (isset($mydata["username"]) && isset($mydata["password"])) {
-    if ($mydata["username"] != "" && $mydata["password"] != "") {
-        // $p_username =前面輸入的帳號
+    if ($mydata["username"] !== "" && $mydata["password"] !== "") {
         $p_username = $mydata["username"];
-        // $p_password =前面輸入的密碼
         $p_password = $mydata["password"];
-        //password_hash("123456", PASSWORD_DEFAULT)
 
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "test20241021";
+        // PostgreSQL 連線資訊
+        $host = "dpg-d0mq0lbe5dus738o9qig-a.singapore-postgres.render.com";
+        $port = "5432";
+        $dbname = "italianfood";
+        $user = "italianfood_user";
+        $pass = "J9QC2ED9ZX9DmLTWs4X5VkDPzVfPSXXJ";
 
-        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        $conn_str = "host=$host port=$port dbname=$dbname user=$user password=$pass";
+        $conn = pg_connect($conn_str);
+
         if (!$conn) {
-            die("連線錯誤!" . mysqli_connect_error());
+            echo json_encode(["state" => false, "message" => "資料庫連線錯誤"]);
+            exit;
         }
 
-        $sql = "SELECT Username, Password FROM member WHERE Username = '$p_username'";
+        // 防止 SQL Injection 用 pg_query_params
+        $sql = "SELECT \"Username\", \"Password\" FROM member WHERE \"Username\" = $1";
+        $result = pg_query_params($conn, $sql, [$p_username]);
 
-        $result = mysqli_query($conn, $sql);
-        if (mysqli_num_rows($result) == 1) {
-            $row = mysqli_fetch_assoc($result);
-            // 印出帳號密碼
-            // echo $row["Username"].'<br>';
-            // echo $row["Password"].'<br>';
+        if ($result && pg_num_rows($result) == 1) {
+            $row = pg_fetch_assoc($result);
             if (password_verify($p_password, $row["Password"])) {
-                //比對正確
-                echo '{"state": true, "message" : "登入成功"}';
+                echo json_encode(["state" => true, "message" => "登入成功"]);
             } else {
-                //比對失敗
-                echo '{"state": false, "message" : "登入失敗"}';
+                echo json_encode(["state" => false, "message" => "登入失敗"]);
             }
         } else {
-            echo '{"state": false, "message" : "登入失敗"}';
+            echo json_encode(["state" => false, "message" => "登入失敗"]);
         }
-        mysqli_close($conn);
+
+        pg_close($conn);
     } else {
-        echo '{"state": false, "message" : "欄位不得空白"}';
+        echo json_encode(["state" => false, "message" => "欄位不得空白"]);
     }
 } else {
-    echo '{"state": false, "message" : "欄位錯誤"}';
+    echo json_encode(["state" => false, "message" => "欄位錯誤"]);
 }
+?>
