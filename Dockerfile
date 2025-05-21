@@ -1,14 +1,21 @@
-# 使用官方 PHP CLI 映像檔，版本可以調整為你想用的版本
-FROM php:8.1-cli
+# 使用 PHP 8.0 與 Apache 的官方映像
+FROM php:8.0-apache
 
-# 設定工作目錄為 /app
-WORKDIR /app
+# 啟用 Apache 的 mod_rewrite 模組
+RUN a2enmod rewrite
 
-# 複製全部專案檔案到容器內的 /app
-COPY . .
+# 安裝必要的 PHP 擴展
+RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-# 對外開放 10000 端口（Render 預設使用這個）
-EXPOSE 10000
+# 複製專案檔案到容器內的 /var/www/html 目錄
+COPY . /var/www/html/
 
-# 啟動 PHP 內建網頁伺服器，監聽 0.0.0.0（對外開放），10000 端口
-CMD ["php", "-S", "0.0.0.0:10000"]
+# 設定工作目錄
+WORKDIR /var/www/html
+
+# 開放容器的 80 埠
+EXPOSE 80
+
+# 啟動 Apache 伺服器
+CMD ["apache2-foreground"]
+
