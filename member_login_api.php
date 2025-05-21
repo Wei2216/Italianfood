@@ -10,12 +10,12 @@ if (isset($mydata["username"]) && isset($mydata["password"])) {
         $p_username = $mydata["username"];
         $p_password = $mydata["password"];
 
-        // PostgreSQL 連線資訊
-        $host = "dpg-d0mq0lbe5dus738o9qig-a.singapore-postgres.render.com";
-        $port = "5432";
-        $dbname = "italianfood";
-        $user = "italianfood_user";
-        $pass = "J9QC2ED9ZX9DmLTWs4X5VkDPzVfPSXXJ";
+        // 從環境變數讀取 PostgreSQL 連線資訊
+        $host = getenv('DB_HOST');
+        $port = getenv('DB_PORT') ?: '5432'; // 預設5432，如果沒設定
+        $dbname = getenv('DB_NAME');
+        $user = getenv('DB_USER');
+        $pass = getenv('DB_PASS');
 
         $conn_str = "host=$host port=$port dbname=$dbname user=$user password=$pass";
         $conn = pg_connect($conn_str);
