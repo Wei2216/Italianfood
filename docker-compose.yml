@@ -1,0 +1,32 @@
+services:
+  - type: web
+    name: italianfood-app
+    env: docker
+    plan: free
+    branch: main
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: DB_HOST
+        fromDatabase:
+          name: italianfood-db
+          property: host
+      - key: DB_PORT
+        value: 5432
+      - key: DB_NAME
+        fromDatabase:
+          name: italianfood-db
+          property: database
+      - key: DB_USER
+        fromDatabase:
+          name: italianfood-db
+          property: user
+      - key: DB_PASS
+        fromDatabase:
+          name: italianfood-db
+          property: password
+
+databases:
+  - name: italianfood-db
+    databaseName: italianfood
+    user: italianuser
+    plan: free
